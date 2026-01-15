@@ -1,6 +1,11 @@
+import os
 from groq import Groq
+from dotenv import load_dotenv
 
-API_KEY = "GROQ_API_KEY" 
+load_dotenv()
+
+API_KEY = os.getenv("GROQ_API_KEY")
+client = Groq(api_key=API_KEY)
 MODEL_NAME = "llama-3.3-70b-versatile"
 def _create_client() -> Groq:
     return Groq(api_key=API_KEY)
